@@ -120,27 +120,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorldView/ViewController/HomePage/HomePageViewController.m"
-            timestampString = "480765447.830801"
+            timestampString = "481644880.05552"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "425"
             endingLineNumber = "425">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WorldView/ViewController/HomePage/HomePageViewController.m"
-            timestampString = "480765488.179331"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-loadSideslipBar"
-            landmarkType = "5">
+            startingLineNumber = "436"
+            endingLineNumber = "436">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,8 +140,22 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-onResp:"
+            endingLineNumber = "64">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorldView/Toolkit/Custom/NSObjec/WXApiManager/WXApiManager.m"
+            timestampString = "481642361.401355"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "-XZJ_AsyncRequestDataReceiveData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -15,6 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadMainView];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(weChatLoginresult) name: @"WXApiManager_weChatLogin" object: nil];
 }
 
 - (void)loadMainView
@@ -95,6 +96,9 @@
     UIImageView *weixinImageView = [[UIImageView alloc] initWithFrame: CGRectMake(curScreenSize.width * 3 / 8.0f, curScreenSize.height - 80.0f, curScreenSize.width / 4.0f, 30.0f)];
     [weixinImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"weixin_login2" ofType: @"png"]]];
     [weixinImageView setContentMode: UIViewContentModeScaleAspectFit];
+    [weixinImageView setUserInteractionEnabled: YES];
+    tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(weixinLogin)];
+    [weixinImageView addGestureRecognizer: tap];
     [self.view addSubview: weixinImageView];
 }
 
@@ -168,6 +172,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - 
+- (void)weixinLogin{
+    [[WXApiManager shareManager] sendLoginReq];
+}
+
+
+#pragma mark - 微信登录结果
+- (void)weChatLoginresult{
+    [self dismissViewControllerAnimated: YES completion: nil];
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver: self name: @"WXApiManager_weChatLogin" object: nil];
 }
 
 /*
