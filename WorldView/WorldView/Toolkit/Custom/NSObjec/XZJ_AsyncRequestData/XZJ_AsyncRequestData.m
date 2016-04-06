@@ -64,13 +64,15 @@
  */
 - (void)startAsyncRequestData_GET:(NSString *) _requestURL isOutUrl:(BOOL) isOutUrl showIndicator:(BOOL) isShow
 {
-    [[(UIViewController *)delegate view] setUserInteractionEnabled: NO];
+    if([delegate isKindOfClass: [UIViewController class]]){
+        [[(UIViewController *)delegate view] setUserInteractionEnabled: NO];
+    }
     if(isShow)
     {
         [[XZJ_ApplicationClass commonApplication] showActivityIndicatorView];
     }
     AFHTTPRequestOperationManager *operateManager = [AFHTTPRequestOperationManager manager];
-    [operateManager.responseSerializer setAcceptableContentTypes:[NSSet setWithObject: [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"textml", nil]]];
+    [operateManager.responseSerializer setAcceptableContentTypes:[NSSet setWithObject: [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"textml", @"text/html", nil]]];
     [operateManager GET: _requestURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[XZJ_ApplicationClass commonApplication] hiddenActivityIndicatorView];
         if(isOutUrl){
@@ -86,10 +88,14 @@
             else
                 [[XZJ_ApplicationClass commonApplication] methodOfShowAlert: @"数据请求错误,请稍后再试"];
         }
-        [[(UIViewController *)delegate view] setUserInteractionEnabled: YES];
+        if([delegate isKindOfClass: [UIViewController class]]){
+            [[(UIViewController *)delegate view] setUserInteractionEnabled: YES];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [[XZJ_ApplicationClass commonApplication] hiddenActivityIndicatorView];
-        [[(UIViewController *)delegate view] setUserInteractionEnabled: YES];
+        if([delegate isKindOfClass: [UIViewController class]]){
+            [[(UIViewController *)delegate view] setUserInteractionEnabled: YES];
+        }
         [[XZJ_ApplicationClass commonApplication] methodOfShowAlert: @"网络开小差，请稍后再试"];
     }];
 }
@@ -150,6 +156,23 @@
  */
 - (void)startAsyncRequestData_POST:(NSString *) _requestURL param:(NSString *) _param showIndicator:(BOOL) isShow
 {
+    [self startAsyncRequestData_POST: _requestURL param:_param showIndicator: isShow isOutUrl: NO];
+}
+
+
+#pragma mark -
+#pragma mark 使用POST方式开始异步请求
+/*!
+ @method
+ @abstract 使用POST方式开始异步请求
+ @discussion 本方法通过XZJ_AsyncRequestData对象来调用本方法，注意_requestURL这个参数为NSString类型，不需要NSURL类型。
+ @param _requestURL:调用接口的URL（NSString类型）。
+ @param _param:需要上传的数据。
+ @param isShow:是否显示加载数据时的活动指示器。
+ @result 无返回结果
+ */
+- (void)startAsyncRequestData_POST:(NSString *) _requestURL param:(NSString *) _param showIndicator:(BOOL) isShow isOutUrl:(BOOL) isOutUrl
+{
     NSLog(@"%@", _requestURL);
     if(isShow)
     {
@@ -187,6 +210,7 @@
      }];
     [operation start];
 }
+
 
 #pragma mark -
 #pragma mark 使用POST方式开始同步请求

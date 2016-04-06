@@ -25,6 +25,7 @@
 {
     [super viewWillAppear:animated];
     [self loadSideslipBar];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(weChatLoginresult) name: @"WXApiManager_weChatLogin" object: nil];
 }
 
 - (void)viewDidLoad {
@@ -400,6 +401,16 @@
 - (void)HomePageMainListView_DidLoadMoreData
 {
     
+}
+
+#pragma mark - 微信登录结果
+- (void)weChatLoginresult{
+    [super viewWillAppear: YES];
+    [self loadSideslipBar];
+}
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver: self name: @"WXApiManager_weChatLogin" object: nil];
 }
 
 - (void)didReceiveMemoryWarning {

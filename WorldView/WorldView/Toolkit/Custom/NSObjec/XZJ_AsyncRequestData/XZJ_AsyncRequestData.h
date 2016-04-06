@@ -20,6 +20,7 @@
 - (id)initWithDelegate:(id<XZJ_AsyncRequestDataDelegate>) _delegate;
 - (void)startAsyncRequestData_GET:(NSString *) _requestURL showIndicator:(BOOL) isShow;
 - (void)startAsyncRequestData_POST:(NSString *) _requestURL param:(NSString *) _param showIndicator:(BOOL) isShow;
+- (void)startAsyncRequestData_POST:(NSString *) _requestURL param:(NSString *) _param showIndicator:(BOOL) isShow isOutUrl:(BOOL) isOutUrl;
 - (NSDictionary *)startSyncRequestData_POST:(NSString *) _requestURL param:(NSString *) _param showIndicator:(BOOL) isShow;
 - (NSDictionary *)startSyncRequestData_GET:(NSString *) _requestURL showIndicator:(BOOL) isShow;
 - (void)startAsyncRequestData_POST:(NSString *) _requestURL fileData:(NSData *)_fileData fileName:(NSString *)_fileName showIndicator:(BOOL) isShow;

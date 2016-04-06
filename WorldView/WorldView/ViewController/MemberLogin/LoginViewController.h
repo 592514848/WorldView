@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "MemberObject.h"
+#import "WXApiManager.h"
 
 @interface LoginViewController : BaseViewController<UITextFieldDelegate,MemberObjectDelegate>
 {
