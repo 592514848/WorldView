@@ -91,7 +91,7 @@
     ///加载见面地点的视图
     origin_y = mainTravelDetailsView.frame.size.height + mainTravelDetailsView.frame.origin.y + 10.0f;
     if(!mainMeetingPlaceView){
-        mainMeetingPlaceView = [[AppointMeetingPlaceView alloc] initWithFrame: CGRectMake(0.0f, origin_y, curScreenSize.width, MEETPLACE_VIEW_HEIGHT)];
+        mainMeetingPlaceView = [[AppointMeetingPlaceView alloc] initWithFrame: CGRectMake(0.0f, origin_y, curScreenSize.width, MEETPLACE_VIEW_HEIGHT) service: mainService];
         [mainScrollView addSubview: mainMeetingPlaceView];
     }
     ///用户评论视图
