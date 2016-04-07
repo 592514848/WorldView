@@ -60,13 +60,13 @@
 #pragma mark tableView委托
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     switch (section) {
-        case 1: case 3:
+        case 1:
             return 3;
         case 2:
         {
@@ -75,8 +75,8 @@
             else
                 return 1;
         }
-        case 4:
-            return 2;
+        case 3:
+            return 1;
         default:
             return 1;
     }
@@ -241,15 +241,15 @@
                 case 3:
                 {
                     switch ([indexPath row]) {
+//                        case 0:
+//                            [titleLabel setText: @"我的优惠"];
+//                            [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"icon_free" ofType: @"png"]]];
+//                            break;
+//                        case 1:
+//                            [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"icon_pop" ofType: @"png"]]];
+//                            [titleLabel setText: @"我要投稿"];
+//                            break;
                         case 0:
-                            [titleLabel setText: @"我的优惠"];
-                            [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"icon_free" ofType: @"png"]]];
-                            break;
-                        case 1:
-                            [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"icon_pop" ofType: @"png"]]];
-                            [titleLabel setText: @"我要投稿"];
-                            break;
-                        case 2:
                             [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"icon_setting" ofType: @"png"]]];
                             [titleLabel setText: @"设置"];
                             break;
@@ -258,22 +258,22 @@
                     }
                     break;
                 }
-                case 4:
-                {
-                    switch ([indexPath row]) {
-                        case 0:
-                            [titleLabel setText: @"关于世界观"];
-                            [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"icon_about" ofType: @"png"]]];
-                            break;
-                        case 1:
-                            [titleLabel setText: @"加入世界观"];
-                            [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"icon_join" ofType: @"png"]]];
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-                }
+//                case 4:
+//                {
+//                    switch ([indexPath row]) {
+//                        case 0:
+//                            [titleLabel setText: @"关于世界观"];
+//                            [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"icon_about" ofType: @"png"]]];
+//                            break;
+//                        case 1:
+//                            [titleLabel setText: @"加入世界观"];
+//                            [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"icon_join" ofType: @"png"]]];
+//                            break;
+//                        default:
+//                            break;
+//                    }
+//                    break;
+//                }
                 default:
                     break;
             }

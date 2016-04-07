@@ -20,6 +20,8 @@
 @property(nonatomic, retain) UIImageView *mainImageView;
 @property(nonatomic, retain) XZJ_CustomLabel *ch_localNameLabel;
 @property(nonatomic, retain) XZJ_CustomLabel *en_localNameLabel;
+//@property(nonatomic, copy) XZJ_CustomLabel *en_localNameLabel;
+
 - (id)initWithStyle:(UITableViewCellStyle) style reuseIdentifier:(NSString *) reuseIdentifier size:(CGSize) _size;
 - (void)updateDisplayView:(NSArray *) _array;
 - (void)updateMainScrollView:(NSArray *) _array;

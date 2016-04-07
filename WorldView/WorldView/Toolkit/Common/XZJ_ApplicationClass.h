@@ -21,8 +21,13 @@ typedef enum
     kWeiXinPayAction = 2 ///微信支付
 }LeaveApplicationAction;
 
-#define SERVER_ADDRESS @"http://123.57.54.221:8080/worldview/app/baseurl.do"
-#define SERVER_FILE_ADDRESS @"http://123.57.54.221:8080/worldview"
+//#define SERVER_ADDRESS @"http://123.57.54.221:8080/worldview/app/baseurl.do"
+//#define SERVER_FILE_ADDRESS @"http://123.57.54.221:8080/worldview"
+
+#define SERVER_ADDRESS @"http://www.worldview.cc:8080/worldview/app/baseurl.do"
+#define SERVER_FILE_ADDRESS @"http://www.worldview.cc:8080/worldview"
+
+
 #define IMAGE_URL(path) [NSURL URLWithString: [NSString stringWithFormat: @"%@%@",SERVER_FILE_ADDRESS,path]]
 
 @interface XZJ_ApplicationClass : NSObject

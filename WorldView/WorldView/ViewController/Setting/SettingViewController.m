@@ -11,6 +11,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTitle: @"设置"];
     [self loadMainView];
 }
 
@@ -20,6 +21,9 @@
     [mainTableView setDelegate: self];
     [mainTableView setDataSource: self];
     [self.view addSubview: mainTableView];
+    UIView *footerView = [[UIView alloc] init];
+    [footerView setBackgroundColor: [UIColor clearColor]];
+    [mainTableView setTableFooterView: footerView];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

@@ -312,7 +312,6 @@
                         default:
                             break;
                     }
-                    
                 }
                 else{
                     ///成为猎人
@@ -323,7 +322,7 @@
             case 3:
             {
                 switch ([curOperateIndexPath row]) {
-                    case 2:
+                    case 0:
                     {
                         SettingViewController *settingVC = [[SettingViewController alloc] init];
                         [self.navigationController pushViewController: settingVC animated: YES];

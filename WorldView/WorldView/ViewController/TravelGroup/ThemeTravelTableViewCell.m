@@ -73,7 +73,7 @@
         [tempImageView.layer setShadowOpacity: 0.2f];
         [tempImageView.layer setShadowOffset: CGSizeMake(0.0f, 1.0f)];
         MemberObject *member = [_array objectAtIndex: i];
-        [tempImageView setImageWithURL: [NSURL URLWithString: [member memberPhoto]] placeholderImage: [UIImage imageNamed: @"default.png"]];
+        [tempImageView setImageWithURL: IMAGE_URL([member memberPhoto]) placeholderImage: [UIImage imageNamed: @"default.png"]];
         if(lastImageView){
             [displayView insertSubview: tempImageView belowSubview: lastImageView];
         }

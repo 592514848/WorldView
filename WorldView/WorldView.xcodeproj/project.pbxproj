@@ -2324,7 +2324,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = cc.worldview.WorldView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b411c095-c576-453f-864c-1635e5f186d5";
 			};
 			name = Debug;
 		};
@@ -2357,7 +2357,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = cc.worldview.WorldView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b411c095-c576-453f-864c-1635e5f186d5";
 			};
 			name = Release;
 		};
