@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "XZJ_ApplicationClass.h"
+#import "ServiceClass.h"
+
 @interface AppointMeetingPlaceView : UIView
 {
     XZJ_ApplicationClass *mainApplication;
+    BMKMapView *mapView;
 }
+
+- (id)initWithFrame:(CGRect)frame service: (ServiceClass *)mainService;
 @end

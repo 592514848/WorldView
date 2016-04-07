@@ -9,10 +9,12 @@
 #import "AppointMeetingPlaceView.h"
 
 @implementation AppointMeetingPlaceView
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame service: (ServiceClass *)mainService
 {
     self = [super initWithFrame: frame];
     if(self){
+         CGSize curScreenSize = [[UIScreen mainScreen] bounds].size;
+        
         mainApplication = [XZJ_ApplicationClass commonApplication];
         ///1.主视图
         [self setBackgroundColor: [UIColor whiteColor]];
@@ -42,13 +44,24 @@
         ///5.位置信息
         CGFloat origin_x = flagImageView.frame.size.width + flagImageView.frame.origin.x + 5.0f;
         XZJ_CustomLabel *placeLabel = [[XZJ_CustomLabel alloc] initWithFrame: CGRectMake(origin_x, origin_y, frame.size.width - origin_x, flagImageView.frame.size.height)];
-        [placeLabel setText: @"Ca'Rezzonico 雷佐尼科宫"];
+//        [placeLabel setText: @"Ca'Rezzonico 雷佐尼科宫"];
+        [placeLabel setText: [NSString stringWithFormat: @"%@", mainService.serviceAddress]];
         [placeLabel setTextColor: [mainApplication methodOfTurnToUIColor: @"#606060"]];
         [placeLabel setFont: [UIFont systemFontOfSize: 14.0f]];
         [self addSubview: placeLabel];
         
-        ///6.地图  UNDO
-        
+        ///6.地图
+        origin_y = placeLabel.frame.size.height + placeLabel.frame.origin.y+10.0f;
+        mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(MARGIN_LEFT, origin_y, curScreenSize.width - 2 * MARGIN_LEFT, self.frame.size.height - origin_y - 10.0f)];
+        [mapView setZoomEnabled: YES];
+        CLLocationCoordinate2D location = CLLocationCoordinate2DMake([mainService.latitude doubleValue], [mainService.longitude doubleValue]);
+        [mapView setCenterCoordinate: location animated: YES];
+//        [mapView setCenterCoordinate: result.location animated: YES];
+        BMKPointAnnotation *pointAnnotation = [[BMKPointAnnotation alloc]init];
+        pointAnnotation.coordinate = location;
+        pointAnnotation.title = mainService.serviceAddress;
+        [mapView addAnnotation:pointAnnotation];
+        [self addSubview:  mapView];
         ///
     }
     return self;
