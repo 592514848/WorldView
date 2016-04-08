@@ -92,14 +92,16 @@
     [registerLabel setUserInteractionEnabled: YES];
     [registerLabel addGestureRecognizer: tap];
     [self.view addSubview: registerLabel];
-    ///6.微信登录
-    UIImageView *weixinImageView = [[UIImageView alloc] initWithFrame: CGRectMake(curScreenSize.width * 3 / 8.0f, curScreenSize.height - 80.0f, curScreenSize.width / 4.0f, 30.0f)];
-    [weixinImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"weixin_login2" ofType: @"png"]]];
-    [weixinImageView setContentMode: UIViewContentModeScaleAspectFit];
-    [weixinImageView setUserInteractionEnabled: YES];
-    tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(weixinLogin)];
-    [weixinImageView addGestureRecognizer: tap];
-    [self.view addSubview: weixinImageView];
+    if([WXApi isWXAppInstalled]){
+        ///6.微信登录
+        UIImageView *weixinImageView = [[UIImageView alloc] initWithFrame: CGRectMake(curScreenSize.width * 3 / 8.0f, curScreenSize.height - 80.0f, curScreenSize.width / 4.0f, 30.0f)];
+        [weixinImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"weixin_login2" ofType: @"png"]]];
+        [weixinImageView setContentMode: UIViewContentModeScaleAspectFit];
+        [weixinImageView setUserInteractionEnabled: YES];
+        tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(weixinLogin)];
+        [weixinImageView addGestureRecognizer: tap];
+        [self.view addSubview: weixinImageView];
+    }
 }
 
 #pragma mark -

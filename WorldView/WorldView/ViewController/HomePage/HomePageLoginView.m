@@ -64,27 +64,30 @@
         lineView = [[UIView alloc] initWithFrame: CGRectMake(20.0f, origin_y, frame.size.width - 40.0f, 1.0f)];
         [lineView setBackgroundColor: [applicationClass methodOfTurnToUIColor:@"#bababa"]];
         [self addSubview: lineView];
-        ///3.底部区域
-        origin_y += 1.0f;
-        XZJ_CustomLabel *tipLabel = [[XZJ_CustomLabel alloc] initWithFrame: CGRectMake(20.0f, origin_y, frame.size.width - 40.0f, 30.0f)];
-        [tipLabel setText: @"使用第三方账号登录"];
-        [tipLabel setTextColor: [applicationClass methodOfTurnToUIColor: @"#929292"]];
-        [tipLabel setFont: [UIFont systemFontOfSize: 13.0f]];
-        [self addSubview: tipLabel];
-        origin_y += tipLabel.frame.size.height + 30.0f;
-        ///4.微信登录
-        UIImageView *weixinImageView = [[UIImageView alloc] initWithFrame: CGRectMake(frame.size.width / 4.0f, origin_y, frame.size.width / 2.0f, 40.0f)];
-        [weixinImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"weixin_login" ofType: @"png"]]];
-        [weixinImageView setContentMode: UIViewContentModeScaleAspectFit];
-        [weixinImageView setUserInteractionEnabled: YES];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(weiXinLogin)];
-        [weixinImageView addGestureRecognizer: tap];
-        [self addSubview: weixinImageView];
-        ///5.底部icon
-        UIImageView *iconImageView = [[UIImageView alloc] initWithFrame: CGRectMake(frame.size.width * 3.0f / 8.0f, frame.size.height - 30.0f, frame.size.width / 4.0f, 20.0f)];
-        [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"gray_logo" ofType: @"png"]]];
-        [iconImageView setContentMode: UIViewContentModeScaleAspectFit];
-        [self addSubview: iconImageView];
+
+        if([WXApi isWXAppInstalled]){
+            ///3.底部区域
+            origin_y += 1.0f;
+            XZJ_CustomLabel *tipLabel = [[XZJ_CustomLabel alloc] initWithFrame: CGRectMake(20.0f, origin_y, frame.size.width - 40.0f, 30.0f)];
+            [tipLabel setText: @"使用第三方账号登录"];
+            [tipLabel setTextColor: [applicationClass methodOfTurnToUIColor: @"#929292"]];
+            [tipLabel setFont: [UIFont systemFontOfSize: 13.0f]];
+            [self addSubview: tipLabel];
+            origin_y += tipLabel.frame.size.height + 30.0f;
+            ///4.微信登录
+            UIImageView *weixinImageView = [[UIImageView alloc] initWithFrame: CGRectMake(frame.size.width / 4.0f, origin_y, frame.size.width / 2.0f, 40.0f)];
+            [weixinImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"weixin_login" ofType: @"png"]]];
+            [weixinImageView setContentMode: UIViewContentModeScaleAspectFit];
+            [weixinImageView setUserInteractionEnabled: YES];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(weiXinLogin)];
+            [weixinImageView addGestureRecognizer: tap];
+            [self addSubview: weixinImageView];
+            ///5.底部icon
+            UIImageView *iconImageView = [[UIImageView alloc] initWithFrame: CGRectMake(frame.size.width * 3.0f / 8.0f, frame.size.height - 30.0f, frame.size.width / 4.0f, 20.0f)];
+            [iconImageView setImage: [UIImage imageWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"gray_logo" ofType: @"png"]]];
+            [iconImageView setContentMode: UIViewContentModeScaleAspectFit];
+            [self addSubview: iconImageView];
+        }
     }
     return self;
 }

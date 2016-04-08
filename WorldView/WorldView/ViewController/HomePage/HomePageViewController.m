@@ -74,9 +74,9 @@
         [scrollView.layer addAnimation:transition forKey:nil];
         [scrollView removeFromSuperview];
         ////加载广告数据
-        AdObject *adObjc = [[AdObject alloc] init];
-        [adObjc setXDelegate: self];
-        [adObjc getAdList];
+//        AdObject *adObjc = [[AdObject alloc] init];
+//        [adObjc setXDelegate: self];
+//        [adObjc getAdList];
     }
 }
 
